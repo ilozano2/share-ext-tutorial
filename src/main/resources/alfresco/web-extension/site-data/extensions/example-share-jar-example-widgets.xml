@@ -1,0 +1,178 @@
+<extension>
+  <modules>
+    <module>
+      <id>example-share-jar - Example Aikau Widgets</id>
+      <version>1.0</version>
+      <auto-deploy>true</auto-deploy>
+      <configurations>
+        <config evaluator="string-compare" condition="WebFramework" replace="false">
+          <web-framework>
+            <dojo-pages>
+              <packages>
+                <package name="tutorials" location="resources/example-share-jar/js/tutorials"/>
+              </packages>
+            </dojo-pages>
+          </web-framework>
+        </config>
+      </configurations>
+    </module>
+
+
+    <module>
+      <id>Blog Module</id>
+      <components>
+        <component>
+          <region-id>full-width-dashlet</region-id>
+          <source-id>user/{userid}/dashboard</source-id>
+          <scope>page</scope>
+          <sub-components>
+            <sub-component id="New_Content" index="25">
+              <url>/blog/demo/new-content</url>
+            </sub-component>
+          </sub-components>
+        </component>
+      </components>
+    </module>
+
+    <module>
+      <id>Blog Module (Hide Title)</id>
+      <components>
+        <component>
+          <region-id>full-width-dashlet</region-id>
+          <source-id>user/{userid}/dashboard</source-id>
+          <scope>page</scope>
+          <sub-components>
+            <!-- Old components were transformed to a component with a "default" subcomponent -->
+            <sub-component id="default">
+              <evaluations>
+                <!-- the evaluation can change some features (webscript to render specifying a url, change default properties, control whether or not to sub-component is rendered like this <render>) -->
+                <evaluation id="guaranteedToHide">
+                  <render>false</render>
+                </evaluation>
+              </evaluations>
+            </sub-component>
+          </sub-components>
+        </component>
+      </components>
+    </module>
+
+
+
+
+
+    <module>
+      <id>Hide footer (always)</id>
+      <components>
+        <component>
+          <region-id>footer</region-id>
+          <source-id>global</source-id>
+          <scope>global</scope>
+          <sub-componets>
+            <sub-component id="default">
+              <!-- Evaluations changes based on his evaluators -->
+              <evaluations>
+                <evaluation id="hideOnSite">
+                  <render> false </render>
+                </evaluation>
+              </evaluations>
+            </sub-component>
+          </sub-componets>
+        </component>
+      </components>
+    </module>
+
+    <module>
+      <id>Hide footer (only for site)</id>
+      <components>
+        <component>
+          <region-id>footer</region-id>
+          <source-id>global</source-id>
+          <scope>global</scope>
+          <sub-componets>
+            <sub-component id="default">
+              <!-- Evaluations changes based on his evaluators -->
+              <evaluations>
+                <evaluation id="hideOnSite">
+                  <evaluators>
+                    <!-- Search spring bean id "blog.demo.evaluator" -->
+                    <evaluator type="blog.demo.evaluator"></evaluator>
+                  </evaluators>
+                  <render> false </render>
+                </evaluation>
+              </evaluations>
+            </sub-component>
+          </sub-componets>
+        </component>
+      </components>
+    </module>
+
+    <module>
+      <id>Hide site members (only for site)</id>
+      <components>
+        <component>
+          <region-id>component-1-1</region-id>
+          <source-id>site/{site}/dashboard</source-id>
+          <scope>page</scope>
+          <sub-componets>
+            <sub-component id="default">
+              <!-- Evaluations changes based on his evaluators -->
+              <evaluations>
+                <evaluation id="hidexxxOnSite">
+                  <evaluators>
+                    <!-- Search spring bean id "blog.demo.evaluator" -->
+                    <evaluator type="blog.demo.evaluator">
+                        <params>
+                          <site>example</site>
+                        </params>
+
+                    </evaluator>
+                  </evaluators>
+                  <render> false </render>
+                </evaluation>
+              </evaluations>
+            </sub-component>
+          </sub-componets>
+        </component>
+      </components>
+    </module>
+
+    <module>
+      <id>Blog Module  (Conditionally Hide Title) </id>
+      <components>
+        <component>
+          <scope>page</scope>
+          <region-id>component-1-1</region-id>
+          <source-id>site/{site}/dashboard</source-id>
+          <sub-components>
+            <sub-component id= "default" >
+              <evaluations>
+                <evaluation id= "HideIfBlogDemoSite" >
+                  <evaluators>
+                    <evaluator type= "blog.demo.evaluator" >
+                      <params>
+                        <site>example</site>
+                      </params>
+                    </evaluator>
+                  </evaluators>
+                  <render> false </render>
+                </evaluation>
+              </evaluations>
+            </sub-component>
+          </sub-components>
+        </component>
+      </components>
+    </module>
+
+
+    <module>
+      <id>Blog Module (i18n property change)</id>
+      <customizations>
+        <customization>
+          <targetPackageRoot>org.alfresco.components.dashlets</targetPackageRoot>
+          <sourcePackageRoot>blog.demo.customization</sourcePackageRoot>
+        </customization>
+      </customizations>
+    </module>
+
+  </modules>
+</extension>
