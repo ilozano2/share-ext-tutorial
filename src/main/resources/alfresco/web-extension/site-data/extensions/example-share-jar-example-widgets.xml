@@ -186,5 +186,14 @@
 
     </module>
 
+    <module>
+      <id>Blog Module (Add region)</id>
+      <customizations>
+        <customization>
+          <targetPackageRoot>org.alfresco</targetPackageRoot>
+          <sourcePackageRoot>blog.demo.customization.welcome</sourcePackageRoot>
+        </customization>
+      </customizations>
+    </module>
   </modules>
 </extension>

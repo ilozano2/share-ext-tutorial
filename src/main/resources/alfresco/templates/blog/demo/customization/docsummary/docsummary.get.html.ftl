@@ -1,0 +1,1 @@
+<@region id="additional-content" target="title" action="before" scope="global" />
