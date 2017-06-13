@@ -166,12 +166,24 @@
 
     <module>
       <id>Blog Module (i18n property change)</id>
+      <version>2.0</version>
       <customizations>
         <customization>
           <targetPackageRoot>org.alfresco.components.dashlets</targetPackageRoot>
-          <sourcePackageRoot>blog.demo.customization</sourcePackageRoot>
+          <sourcePackageRoot>blog.demo.customization.members</sourcePackageRoot>
         </customization>
       </customizations>
+    </module>
+
+
+    <module>
+      <id>Blog module (Web view JS controller change)</id>
+      <version>1.3</version>
+      <customizations>
+        <targetPackageRoot>org.alfresco.components.dashlets</targetPackageRoot>
+        <sourcePackageRoot>blog.demo.customization.webview</sourcePackageRoot>
+      </customizations>
+
     </module>
 
   </modules>

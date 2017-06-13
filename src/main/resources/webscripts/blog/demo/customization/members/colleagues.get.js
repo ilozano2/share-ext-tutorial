@@ -1,0 +1,1 @@
+model.widgets[1].options.actions[0].bubbleOnClick.message = 'CAMBIADO HELP';
