@@ -37,3 +37,5 @@ Step 8. Add a new page to Alfresco Share
 * Templates in: alfresco.templates.XXX
 * Pages and templates instances in: alfresco.site-data
 * Default configured page: alfresco.web-extension.site-data.configurations
+
+Step 9. Override Alfresco Share login page
