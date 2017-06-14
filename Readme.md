@@ -13,3 +13,27 @@ Surfbug and you can see "Evaluated URI" of components
 
 h3. 6. Customize Alfresco Share FreeMarker templates
 
+IMPORTANT: templates should be located in alfresco.templates.<whateverpackageyouwant> because Alfresco will look on this folder for templates
+
+h4. About Freemarker extensibilty
+
+Actions supported
+* remove: remove completely the content from the model
+* replace
+* before: put the content before the target directive contents
+* after: put the content after the target directive
+
+<@region>
+
+To define regions into which components are bound
+
+<@markup>
+
+To demarcate sections of HTML in a template
+
+
+Step 8. Add a new page to Alfresco Share
+
+* Templates in: alfresco.templates.XXX
+* Pages and templates instances in: alfresco.site-data
+* Default configured page: alfresco.web-extension.site-data.configurations
